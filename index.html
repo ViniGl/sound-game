@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mimic Party Game</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/screens.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 1. START / SETUP SCREEN -->
+        <section id="screen-setup" class="screen active">
+            <header class="screen-header">
+                <h1>Mimic Game</h1>
+            </header>
+
+            <main class="screen-content">
+                <!-- Timer Configuration -->
+                <div class="setting-group">
+                    <label for="input-timer">Turn Duration (seconds)</label>
+                    <input type="number" id="input-timer" value="60" min="5" max="300" step="5">
+                </div>
+
+            </main>
+
+            <footer class="screen-footer">
+                <button id="btn-start-session" class="btn btn-primary">Start Game Session</button>
+            </footer>
+        </section>
+
+        <!-- 2. CATEGORY ROLL SCREEN -->
+        <section id="screen-roll" class="screen">
+            <header class="screen-header">
+                <p class="subtitle">Next Player Turn</p>
+            </header>
+
+            <main class="screen-content center-content">
+                <div class="category-card">
+                    <p class="label">Category</p>
+                    <h2 id="rolled-category-name">--</h2>
+                </div>
+            </main>
+
+            <footer class="screen-footer">
+                <button id="btn-start-turn" class="btn btn-success">Start Turn</button>
+            </footer>
+        </section>
+
+        <!-- 3. PLAY / GAMEPLAY SCREEN -->
+        <section id="screen-play" class="screen">
+            <header class="screen-header">
+                <div id="timer-display" class="timer">01:00</div>
+            </header>
+
+            <main class="screen-content center-content">
+                <!-- Word Display Area with Press-and-Hold Reveal Mask -->
+                <div id="word-card" class="word-card">
+                    <div id="word-mask" class="word-mask">
+                        <span>Hold to Reveal Word</span>
+                    </div>
+                    <div class="word-content">
+                        <h2 id="current-word">---</h2>
+                        <span id="current-points" class="badge-points">+1 pt</span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="screen-footer">
+                <!-- Hold-to-Reveal trigger button -->
+                <button id="btn-hold-reveal" class="btn btn-hold">Hold to Reveal</button>
+
+                <div class="action-buttons">
+                    <button id="btn-skip" class="btn btn-danger">Skip</button>
+                    <button id="btn-success" class="btn btn-success">Success</button>
+                </div>
+            </footer>
+        </section>
+
+        <!-- 4. TURN SUMMARY / RESULTS SCREEN -->
+        <section id="screen-summary" class="screen">
+            <header class="screen-header">
+                <h2>Turn Complete</h2>
+            </header>
+
+            <main class="screen-content">
+                <div class="score-board">
+                    <div class="score-card">
+                        <span class="score-label">Turn Score</span>
+                        <span id="turn-score-value" class="score-value">0</span>
+                    </div>
+                    <div class="score-card">
+                        <span class="score-label">Session Total</span>
+                        <span id="session-score-value" class="score-value">0</span>
+                    </div>
+                </div>
+
+                <h3>Turn Word History</h3>
+                <div id="turn-history-list" class="history-list">
+                    <!-- Dynamically populated with word breakdown -->
+                </div>
+            </main>
+
+            <footer class="screen-footer stack-buttons">
+                <button id="btn-next-turn" class="btn btn-primary">Next Player Round</button>
+                <button id="btn-end-session" class="btn btn-secondary">End Game Session</button>
+            </footer>
+        </section>
+
+    </div>
+
+    <!-- Global Data Files -->
+    <script src="data/categories.js"></script>
+    <script src="data/acao.js"></script>
+    <script src="data/eventos.js"></script>
+    <script src="data/pessoas_lugares_personagens.js"></script>
+    <script src="data/natureza.js"></script>
+    <script src="data/objeto.js"></script>
+
+    <!-- Models & Utilities -->
+    <script src="js/models/state.js"></script>
+    <script src="js/models/assetLoader.js"></script>
+    <script src="js/models/timer.js"></script>
+    <script src="js/models/session.js"></script>
+
+    <!-- UI Components -->
+    <script src="js/ui/dom.js"></script>
+    <script src="js/ui/renderers.js"></script>
+
+    <!-- State Controllers -->
+    <script src="js/states/stateManager.js"></script>
+    <script src="js/states/setupState.js"></script>
+    <script src="js/states/rollState.js"></script>
+    <script src="js/states/playState.js"></script>
+    <script src="js/states/summaryState.js"></script>
+
+    <!-- Main Entry -->
+    <script src="main.js"></script>
+</body>
+
+</html>

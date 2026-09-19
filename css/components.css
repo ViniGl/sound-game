@@ -1,0 +1,170 @@
+/* Buttons */
+.btn {
+  width: 100%;
+  min-height: 56px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: #ffffff;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: #ffffff;
+}
+
+.btn-hold {
+  background-color: var(--accent-color);
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.stack-buttons {
+  gap: 0.75rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.action-buttons .btn {
+  flex: 1;
+}
+
+/* Inputs & Form Controls */
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setting-group label {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.setting-group input[type="number"] {
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  background-color: var(--surface-secondary);
+  border: 1px solid #3f3f46;
+  border-radius: var(--border-radius);
+  color: var(--text-main);
+  outline: none;
+}
+
+/* Category Grid & Selector */
+.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--surface-secondary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.category-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-color);
+}
+
+/* Word Card & Press-and-Hold Mask */
+.word-card {
+  width: 100%;
+  min-height: 220px;
+  background-color: var(--surface-secondary);
+  border-radius: var(--border-radius);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.word-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.word-content h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  word-break: break-word;
+}
+
+.badge-points {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: var(--primary-color);
+  border-radius: 9999px;
+}
+
+.word-mask {
+  position: absolute;
+  inset: 0;
+  background-color: #27272a;
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.word-mask span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Hidden mask state when button is held down */
+.word-mask.revealed {
+  opacity: 0;
+  visibility: hidden;
+}
