@@ -1,4 +1,4 @@
-window.CATEGORIES_DATA["Os P's"] = {
+window.CATEGORIES_DATA["Pessoas, Lugares e Personagens"] = {
   "Bombeiro": 1,
   "Policial": 1,
   "Médico": 2,
